@@ -15,9 +15,14 @@ if (isset($_POST['name'])){
     $password=$_POST['password'];
     $confirm_password=$_POST['confirm-password'];
     
+    $flag=0;
     if($confirm_password!=$password){
         echo "<script> alert('Please Check your password' );</script> ";
+        $flag=1;
     } 
+
+
+    if ($flag==0){
 
     $sql="INSERT INTO `login db` (`username`, `email`, `password`) VALUES ('$name', '$email', '$password');";
     
@@ -29,6 +34,11 @@ if (isset($_POST['name'])){
         echo "<script> alert('Your Account is created ' );</script>";
 
         
+
+    }
+    }
+    else{
+        echo "<script> alert('Please Signup again ' );</script>";
 
     }
 
